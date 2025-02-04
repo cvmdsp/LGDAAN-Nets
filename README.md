@@ -4,5 +4,6 @@ The code for "LGDAAN-Nets: A Local and Global Domain Adversarial Attention Neura
 
 
 Requirements:
-● Python 3.11
-● Pytorch 2.16.0
+
+● Python 3.8
+● Tensorflow 2.6.0
