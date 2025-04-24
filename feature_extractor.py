@@ -10,15 +10,15 @@ class ConvLSTMBlock(tf.keras.Model):
         self.pooling = layers.MaxPooling2D(pool_size=pool_size, strides=pool_strides, padding='same')
 
     def call(self, inputs):
-        # 确保输入是5D张量（(batch_size, time_steps, height, width, channels)）
+        
         if len(inputs.shape) == 4:
-            # 如果输入是4D张量，则在第二维（时间步）上添加一个额外的维度
-            inputs = tf.expand_dims(inputs, axis=1)  # 将其转换为5D张量
+           
+            inputs = tf.expand_dims(inputs, axis=1)  
 
         x = self.conv_lstm(inputs)
         x = self.batch_norm(x)
 
-        # 如果输入是5D张量，池化操作需要4D张量
+        
         if len(x.shape) == 5:
             x = tf.reshape(x, [-1, x.shape[2], x.shape[3], x.shape[4]])  # Reshaping to 4D for pooling
 
